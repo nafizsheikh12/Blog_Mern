@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 
-const URL = 'http://localhost:4000'
+const URL = 'https://blogweb-mern.herokuapp.com'
 
 export const getAllPosts = async (param) => {
     try{ 
