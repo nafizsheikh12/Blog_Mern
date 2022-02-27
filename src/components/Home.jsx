@@ -10,7 +10,9 @@ import Post from './Posts'
         <Banner/>
        <Grid container>
          <Grid item lg={2} sm={12}>
-           <Catagories />
+          <div style={{paddingLeft:"5px"}}>
+            <Catagories />
+          </div>
          </Grid>
 
          <Grid container item lg={10} xs={12} sm={10}>
