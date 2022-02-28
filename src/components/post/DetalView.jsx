@@ -70,7 +70,7 @@ const useStyle = makeStyles({
 
             <Box className={classes.subheading}>
               <Link to={`/?username=${post.username}`}>
-               <Typography>Author: {post.username}</Typography> </Link>
+               <Typography style={{textDecoration:'none'}}>Author: {post.username}</Typography> </Link>
                <Typography style={{marginLeft: 'auto'}}>{new Date(post.createDate).toDateString( )}</Typography>
             </Box>
 

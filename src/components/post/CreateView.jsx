@@ -47,7 +47,7 @@ const useStyle = makeStyles({
  const CreateView = () => {
      const classes = useStyle();
 	 const [post,setpost] = useState(intialValues)
-     const url =  post.picture ||'https://images.unsplash.com/photo-1543128639-4cb7e6eeef1b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wJTIwc2V0dXB8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80'
+     const url =  'https://images.unsplash.com/photo-1543128639-4cb7e6eeef1b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wJTIwc2V0dXB8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80'||post.picture
      const history = useHistory()
 
      
@@ -56,18 +56,20 @@ const useStyle = makeStyles({
          setpost({...post,[e.target.name]:e.target.value })
      }
 
-     useEffect(() => {
-        const getImage = async () => {
-            if(file){
-                const data = new FormData();
-                data.append('name',file.name);
-                data.append('file',file)
+   
+    const getImage = async (e) => {
+        const reader = new FileReader();
+        const file = e.target.files[0];
 
-                await uploadFile(data);
-            }
+ 
+        reader.readAsDataURL(file);
+        reader.onloadend = function () {
+            setfile(reader.result)
+            await uploadFile(reader.result);
+         
         }
-        getImage()
-     }, [file])
+     }
+     
 
      const savePost = async () => {
          await createPost(post)
@@ -75,7 +77,7 @@ const useStyle = makeStyles({
      }
      return (
         <Box className={classes.container}>
-            <img src={url} className={classes.image}/>
+            <img src={file} className={classes.image}/>
 
             <FormControl className={classes.form}>
               <label htmlFor='fileInput'>
@@ -85,7 +87,7 @@ const useStyle = makeStyles({
                     type="file"
                     id='fileInput'
                     style={{display:'none'}}
-                    onChange={(e) =>  setfile(e.target.files[0])}
+                    onChange={getImage}
                 />
                 <InputBase name='title' onChange={(e) => { handlechange(e) }} placeholder='Title' className={classes.textField}/>
             

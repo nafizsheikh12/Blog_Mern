@@ -9,13 +9,13 @@ import Post from './Posts'
      <>   
         <Banner/>
        <Grid container>
-         <Grid item lg={2} sm={12}>
+         <Grid item lg={2} sm={12} xm={12}>
           <div style={{paddingLeft:"5px"}}>
             <Catagories />
           </div>
          </Grid>
 
-         <Grid container item lg={10} xs={12} sm={10}>
+         <Grid container item lg={10} xs={12} sm={12}>
              <Post />
          </Grid> 
            

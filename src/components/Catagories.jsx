@@ -2,7 +2,7 @@ import React from 'react'
 import {Button, makeStyles, TableCell, TableHead, TableRow,Table,TableBody} from '@material-ui/core'
 import {categories} from './constants/data'
 import {Link} from 'react-router-dom'
-
+import "./responsive.css"
 
  const useStyle = makeStyles({
    create: {  margin:20,
@@ -20,7 +20,8 @@ import {Link} from 'react-router-dom'
         <>
            <Link to='/create'> <Button variant='contained' className={classes.create}>Create Blog</Button> </Link>
 
-           <Table className={classes.table}>
+         <div class="tableres">
+           <Table className={classes.table} item xs={12}>
                <TableHead>
                    <TableRow>
                        <TableCell>All Catagories</TableCell>
@@ -36,6 +37,7 @@ import {Link} from 'react-router-dom'
                    }
                </TableBody>
            </Table>
+         </div>  
         </>
     )
 }

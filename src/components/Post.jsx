@@ -12,9 +12,33 @@ const useStyles= makeStyles({
       flexDirection: 'column'
   },
   image: {height:150,
+          width:'100%'
+      },
 
-
-}
+  title:{
+    marginTop: '3px',
+    fontFamily: 'sans-serif',
+    fontWeight: '500px',
+    textAlign: 'center',
+    fontSize:"20px",
+    marginButtom: "18px"
+  },
+  desc:{
+      fontSize:"15px",
+      marginTop:"8px",
+      fontFamily:"cursive",
+      textAlign:"center"
+  },
+  username:{
+      marginRight:'auto',
+      marginTop:"6rem",
+      paddingLeft:"5px"
+  },
+  cate:{
+      marginLeft:"auto",
+      marginTop:"-21px",
+      marginRight:"27px"
+  }  
 })
 
 
@@ -26,10 +50,9 @@ const useStyles= makeStyles({
     return (
         <Box className={classes.container}>
              <img src={url} className={classes.image}/>
-             <Typography>{post.categories}</Typography>
-             <Typography>{post.title}</Typography>
-             <Typography>author: {post.ursername}</Typography>
-             <Typography>{post.description}</Typography>
+             <Typography className={classes.title}>{post.title}</Typography>
+             <Typography className={classes.desc}>{post.description}</Typography>
+             
             
         </Box>
     )
