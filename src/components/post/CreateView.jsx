@@ -63,7 +63,7 @@ const useStyle = makeStyles({
 
  
         reader.readAsDataURL(file);
-        reader.onloadend = function () {
+        reader.onloadend =async  function () {
             setfile(reader.result)
             await uploadFile(reader.result);
          
