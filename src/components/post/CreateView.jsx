@@ -65,14 +65,14 @@ const useStyle = makeStyles({
         reader.readAsDataURL(file);
         reader.onloadend =async  function () {
             setfile(reader.result)
-           
+           setpost({...post,picture:file})
          
         }
      }
      
 
      const savePost = async () => {
-         await createPost(post)
+         await createPost(post,file)
           await  uploadFile(file)
          history.push('/');
      }
