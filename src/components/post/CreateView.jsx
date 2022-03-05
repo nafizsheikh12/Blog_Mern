@@ -65,7 +65,7 @@ const useStyle = makeStyles({
         reader.readAsDataURL(file);
         reader.onloadend =async  function () {
             setfile(reader.result)
-            await uploadFile(reader.result);
+           
          
         }
      }
@@ -73,6 +73,7 @@ const useStyle = makeStyles({
 
      const savePost = async () => {
          await createPost(post)
+          await  uploadFile(file)
          history.push('/');
      }
      return (
