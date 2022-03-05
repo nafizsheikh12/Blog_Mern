@@ -72,7 +72,7 @@ const useStyle = makeStyles({
      
 
      const savePost = async () => {
-         await createPost(post,file)
+         await createPost(post)
           await  uploadFile(file)
          history.push('/');
      }
