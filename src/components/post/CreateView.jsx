@@ -51,7 +51,7 @@ const useStyle = makeStyles({
      const history = useHistory()
 
      
-    const [file, setfile] = useState('')
+    const [file, setfile] = useState('https://images.unsplash.com/photo-1543128639-4cb7e6eeef1b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wJTIwc2V0dXB8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80')
      const handlechange = (e) => {
          setpost({...post,[e.target.name]:e.target.value })
      }
@@ -65,15 +65,16 @@ const useStyle = makeStyles({
         reader.readAsDataURL(file);
         reader.onloadend =async  function () {
             setfile(reader.result)
-           setpost({...post,picture:file})
+            
          
         }
      }
      
 
      const savePost = async () => {
-         await createPost(post)
-          await  uploadFile(file)
+        console.log(post)
+         await createPost({post,file})
+          
          history.push('/');
      }
      return (

@@ -43,6 +43,7 @@ const useStyle = makeStyles({
      const classes = useStyle();
      const url = "https://images.unsplash.com/photo-1543128639-4cb7e6eeef1b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wJTIwc2V0dXB8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80"
       const [post,setpost] = useState([]);
+      const URL = 'https://blogweb-mern.herokuapp.com'
       const history = useHistory()
       useEffect(() => {
           const fetchData = async () => {
@@ -61,7 +62,7 @@ const useStyle = makeStyles({
       }
     return (
         <Box className={classes.container}>
-            <img src={post.picture || url} className={classes.image}/>
+            <img src={`${URL}${post.picture}`} className={classes.image}/>
             <Box className={classes.icons}>
                 <Link to={`/update/${post._id}`}> <Edit classname={classes.icon} color="primary"/> </Link>
                 <Delete classname={classes.icon} onClick={() => { deleteBlog() }} color="error"/>
